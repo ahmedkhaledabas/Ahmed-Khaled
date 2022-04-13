@@ -1,10 +1,13 @@
 <?php
-$cities = ['Cairo', 'Giza', 'Alex', 'Others'];
+
 $username = $_POST['username'] ?? "";
 $city = $_POST['city'] ?? "";
-
-
-
+$sel = "
+    <option> Cairo </option>
+    <option> Giza </option>
+    <option> Alex </option>
+    <option> Other </option>
+";
 
 ?>
 
@@ -33,32 +36,25 @@ $city = $_POST['city'] ?? "";
           <input class="mt-3 form-control" type="text" name="username" value="<?= $username ?>">
           <h3 class="mt-3 text-info">City</h3>
           <select class="mt-3 form-control" name="city" id="" value="">
-            <?php
-            for ($i = 0; $i < count($cities); $i++) {
-              echo "<option>{$cities[$i]}</option>";
-              if ($$cities[$i] = 'Cairo') {
-                $delivery = 0;
-              } elseif ($$cities[$i] = 'Giza') {
-                $delivery = 30;
-              } elseif ($$cities[$i] = 'Alex') {
-                $delivery = 50;
-              } else {
-                $delivery = 100;
+           <option value="Cairo" <?php if($_POST){ if($_POST['city']=='Cairo'){echo 'selected';}} ?> >Cairo</option>
+           <option value="Giza" <?php if($_POST){ if($_POST['city']=='Giza'){echo 'selected';}} ?> >Giza</option>
+           <option value="Alex" <?php if($_POST){ if($_POST['city']=='Alex'){echo 'selected';}} ?> >Alex</option>
+           <option value="Other" <?php if($_POST){ if($_POST['city']=='Other'){echo 'selected';}} ?> >Other</option>
+
+          <?php
+              if($_POST){
+                if($_POST['city']=='Cairo'){
+                  $delivery=0;
+                }elseif($_POST['city']=='Giza'){
+                  $delivery=30;
+                }elseif($_POST['city']=='Alex'){
+                  $delivery=50;
+                }else{
+                  $delivery=100;
+                }
               }
-            }
-            // foreach($cities as $keyCities => $valueCities){
-            //   echo "<option selected value='$valueCities' >$valueCities</option>";
-            //   if($valueCities='Cairo'){
-            //     $delivery=0;
-            //   }elseif($valueCities='Giza'){
-            //     $delivery=30;
-            //   }elseif($_POST['city']='Alex'){
-            //     $delivery=50;
-            //   }else{
-            //     $delivery=100;
-            //   }
-            //   }; 
-            ?>
+          ?>
+
           </select>
           <h3 class="mt-3 text-info">Number Of Product</h3>
           <input class="mt-3 form-control" type="number" name="numberofproduct" value="<?= $_POST['numberofproduct'] ?? "" ?>">
