@@ -1,13 +1,6 @@
 <?php
 
 $username = $_POST['username'] ?? "";
-$city = $_POST['city'] ?? "";
-$sel = "
-    <option> Cairo </option>
-    <option> Giza </option>
-    <option> Alex </option>
-    <option> Other </option>
-";
 
 ?>
 
